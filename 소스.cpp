@@ -1,40 +1,19 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include<iostream>
-#include<string.h>
-#include<vector>
-
-using namespace std;
+#include <iostream>
 
 int main()
 {
-	char* s = new char;
-	char arr[27] = "abcdefghijklmnopqrstuvwxyz";
-
-	cin >> s;
-	delete[] s;
-	for (int i = 0; i <= 27; i++)
+	int N = 0;
+	scanf("%d", &N);
+	for (int n = 0; (3 * (n * (n + 1))+1); n++)
 	{
-		for (int j = 0; j <= sizeof(s); j++)
-		{
-			if (arr[i] == s[j])
-			{
-				cout << j;
-				cout << " ";
-			}
-
-			else if (arr[i] != s[j])
-				continue;
-
-			else if (i == 26)
-			{
-				printf("-1 ");
-			}
-				
+		if (N > (3 * (n * (n + 1)) + 1))
 			continue;
+		if (N <= (3 * (n * (n + 1)) + 1))
+		{
+			printf("%d", n+1);
+			break;
 		}
 	}
-
-	
-	
 	return 0;
 }
