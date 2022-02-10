@@ -1,32 +1,18 @@
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-char str[40];
-int num = 0;
-int list[100];
-int cnt = 0, i;
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
 
 int main()
 {
-	gets_s(str, 40);
-	for (int i = 0; cnt < 40 && str[i]; i++)
-	{
-		if (str[i] != ' ')
-		{
-			num = num * 10 + str[i] - '0';
-		}
-		else
-		{
-			if (num > 0)
-			{
-				list[cnt++] = num;
-				num = 0;
-			}
-		}
-	}
+    char str[100], * s;
+    int num[100], i, cnt = 0;
 
-	cout << num;
-	return 0;
+    gets_s(str);
+
+    for (s = strtok(str, " "); s; s = strtok(NULL, " "), cnt++) // strtok 에 구분자 지정
+        if (sscanf(s, "%d", &num[cnt]) < 1)
+            break;
+
+    for (i = 0; i < cnt; i++)
+        printf("%d\n", num[i]);
 }
